@@ -299,11 +299,6 @@ def compile_gl_program(vertex, fragment):
         bindless_setup = '''
             #define OPTIONALLY_BINDLESS
         '''
-        if hasGLExtension('GL_ARB_bindless_texture'):
-            bindless_setup = '''
-            #extension GL_ARB_bindless_texture : enable
-            #define OPTIONALLY_BINDLESS layout(bindless_sampler)
-            '''
         import textwrap
         source = textwrap.dedent(f'''
         #version 410 core
